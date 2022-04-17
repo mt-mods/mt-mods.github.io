@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>MT-Mods | Projects</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="assets/icon.png"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    </head>
+    <body class="projects">
+        <div class="navbar">
+            <a href="/index.html"><img src="/assets/icon.png" alt="mt-mods logo" title="mt-mods logo"></a>
+            <a href="/projects.html">Projects</a>
+            <a href="/aboutus.html">About</a>
+        </div>
+        <div style="height:5rem; width:100%;"></div>
+        <div id="project_list"></div>
+        <div style="height: 1rem; width:100%;"></div>
+        <script>
+            fetch('https://api.github.com/orgs/mt-mods/repos?per_page=100').then(response => response.json())
+                .then(data => {
+                    //console.log(data);
+                    let append_el = document.getElementById("project_list")
+                    let append_html = ""
+                    for (let entry of data) {
+                        //console.log(entry);
+                        let markup = `
+                            <div class="project_card">
+                                <h1>${entry.name}</h1>
+                                <p>${entry.description}</p>
+                                <a href="${entry.clone_url}">Visit Me</a>
+                            </div>
+                        `;
+                        append_html = append_html + markup;
+                    }
+                    //console.log(append_html);
+                    append_el.innerHTML = append_html;
+                });
+        </script>
+    </body>
+</html>

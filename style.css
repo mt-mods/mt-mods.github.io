@@ -10,6 +10,9 @@ html {
 :root {
     --cta_w: 60%;
     --cta_h: 100vh;
+    --bg_dark: rgb(19, 21, 22);
+    --bg_dark_2: #1f1f1f;
+    --txt_color: #bebebe;
 }
 
 a {
@@ -55,9 +58,9 @@ body {
     width: 100%;
     display: flex;
     gap: 2rem;
-    background-color: #f8f9fa;
-    color: black;
-    box-shadow: 0px 0px 2px 2px #888888;
+    background-color: var(--bg_dark_2);
+    color: var(--txt_color);
+    box-shadow: 0px 0px 1px 1px var(--txt_color);
 }
 
 .navbar img {
@@ -67,7 +70,7 @@ body {
 }
 
 .navbar a {
-    color: black;
+    color: var(--txt_color);
 }
 
 .navbar * {
@@ -103,68 +106,70 @@ body {
     width: 50%;
 }
 
-.aboutus .hero {
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("assets/background.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-color);
+body.aboutus {
+    background-image: none;
+    background-color: var(--bg_dark);
+    height: auto;
 }
 
-.aboutus .hero-content {
-    text-align: center;
-    color: white;
-}
-
-.aboutus .about {
-    background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
-    color: var(--text-color);
+.aboutus .aboutus_wrap {
+    margin: 6rem 10%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
-.aboutus .about-content {
-    margin-top: 5rem;
-    margin-bottom: 10rem;
-    display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    min-width: none;
+}
+
+.aboutus .about_org {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+}
+
+.aboutus .about_org_img  {
+    width: 60%;
+}
+
+.aboutus .about_org_desc {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--txt_color);
+}
+
+.aboutus .about_org_desc p {
+    padding-left: 4rem;
+    border-left: 5px solid var(--txt_color);
+}
+
+.aboutus .about_org_desc a {
     color: white;
+    text-decoration: underline;
 }
 
-.aboutus .about-content h4 {
+.aboutus .about_minetest {
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    margin-bottom: 2rem;
 }
 
-.aboutus .about-content p {
-    max-width: 25rem;
-    flex-basis: 100%;
-    margin-bottom: 2rem;
-    margin: 0 2rem;
-}
-
-.aboutus .about-content br {
-    width: 100%;
-    content: '';
-}
-
-.aboutus .about-content img {
-    width: 20rem;
-    margin-top: 3rem;
+.aboutus .about_minetest_desc {
+    width: 40%;
+    color: var(--txt_color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 .aboutus .minetest-logo {
+    width: 60%;
     transition: 0.5s;
+    display: flex;
+    justify-content: center;
+}
+
+.aboutus .minetest-logo img {
+    width: 80%;
 }
 
 .aboutus .minetest-logo:hover {
@@ -173,7 +178,7 @@ body {
 
 body.projects {
     justify-content: center;
-    background-color: white;
+    background-color: var(--bg_dark);
     background-image: none;
 }
 
@@ -192,6 +197,8 @@ body.projects {
     box-shadow: 0px 0px 2px 2px #888888;
     width: 15rem;
     text-align: center;
+    background-color: var(--bg_dark_2);
+    color: var(--txt_color)
 }
 
 .projects .project_card h1 {
@@ -221,7 +228,7 @@ body.projects {
 }
 
 .projects .project_card a {
-    color: black;
+    color: var(--txt_color);
     display: block;
     margin-bottom: 1rem;
 }
@@ -251,5 +258,23 @@ body.projects {
     }
     .nav_circle {
         margin-right: 0;
+    }
+
+    .aboutus .about_org_img, .aboutus .about_org_desc {
+        width: 100%;
+    }
+
+    .aboutus .about_org_desc p {
+        padding: 0;
+        border: none;
+    }
+
+    .aboutus .about_minetest_desc {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .aboutus .minetest-logo {
+        width: 100%;
     }
 }

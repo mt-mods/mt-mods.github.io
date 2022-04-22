@@ -34,8 +34,8 @@
                         //console.log(entry);
                         let markup = `
                             <div class="project_card">
-                                <h1>${entry.name}</h1>
-                                <p>${entry.description}</p>
+                                <h1>${entry.name.replaceAll("_", " ")}</h1>
+                                <p>${entry.description ? entry.description : "no description found"}</p>
                                 <a href="${entry.clone_url}">Visit Me</a>
                             </div>
                         `;
